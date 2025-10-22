@@ -7,15 +7,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./choices.min.css">
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/typography.css">
     <link rel="stylesheet" href="./styles/main.css">
-    <title>LoremIpsum.Net - Бохон Александр</title>
+
+    <!-- loader (расположил здесь, потому что нужен в первую очередь) -->
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            loader.classList.add('hidden');
+        });
+    </script>
+    <title>Бохон Александр - LoremIpsum.Net</title>
 </head>
 <body class="page">
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+
 <header class="header" data-sticky>
     <div class="container header__row">
-        <a class="header__logo" href="#">LOREMIPSUM<span class="header__logo-accent">.NET</span></a>
+        <a class="header__logo" href="#">LOREMIPSUM.<span class="header__logo-accent">NET</span></a>
         <nav class="header__nav">
             <a class="header__link" href="#">Бизнес</a>
             <a class="header__link" href="#">О нас</a>
@@ -35,11 +48,11 @@
                 </h1>
                 <div class="hero__desc">
                     At vero eos et accusamus et iusto odio dignissimos ducimus!
-                    <ul class="hero__list">
-                        <li>Totam rem aperiam eaque ipsa</li>
-                        <li>Sit voluptatem accusantium doloremque laudantium</li>
-                        <li>Sed ut perspiciatis, unde omnis iste natus error</li>
-                    </ul>
+                    <div class="hero__list">
+                        <p><span>-</span> Totam rem aperiam eaque ipsa</p>
+                        <p><span>-</span> Sit voluptatem accusantium doloremque laudantium</p>
+                        <p><span>-</span> Sed ut perspiciatis, unde omnis iste natus error</p>
+                    </div>
                 </div>
                 <div class="hero__actions">
                     <button class="btn btn--primary">Заказать</button>
@@ -51,7 +64,7 @@
 
     <section class="steps" aria-labelledby="steps-title">
         <div class="container">
-            <h2 id="steps-title" class="steps__title">Оформление <span class="steps__accent">заказа</span></h2>
+            <h2 id="steps-title" class="steps__title">Оформление&nbsp; <span class="steps__accent">заказа</span></h2>
             <p class="steps__description">Перед заполнением формы ознакомьтесь с нашей схемой работы!</p>
             <ol class="steps__list">
                 <li class="steps__item">
@@ -85,24 +98,25 @@
                     <div class="steps__caption">Excepteur sint occaecat cupidatat non proident</div>
                 </li>
             </ol>
-
             <form class="form" id="order" novalidate>
                 <div class="form__grid">
-                    <label>
-                        <select class="form__control" name="system" required>
-                            <option value="">Выберите тип системы</option>
-                            <option value="1">Sed ut perspiciatis</option>
-                            <option value="2">Nemo enim ipsam</option>
-                            <option value="3">Et harum quidem</option>
-                            <option value="4">Temporibus autem</option>
-                            <option value="5">Itaque earum rerum</option>
-                            <option value="6">Sed ut perspiciatis</option>
-                            <option value="7">Nemo enim ipsam</option>
-                            <option value="8">Et harum quidem</option>
-                            <option value="9">Temporibus autem</option>
-                            <option value="10">Itaque earum rerum</option>
-                        </select>
-                    </label>
+                    <div class="form__select">
+                        <label>
+                            <select id="system" class="form__control" name="system" required>
+                                <option value="" disabled selected hidden>Выберите тип системы</option>
+                                <option value="1">Sed ut perspiciatis</option>
+                                <option value="2">Nemo enim ipsam</option>
+                                <option value="3">Et harum quidem</option>
+                                <option value="4">Temporibus autem</option>
+                                <option value="5">Itaque earum rerum</option>
+                                <option value="6">Sed ut perspiciatis</option>
+                                <option value="7">Nemo enim ipsam</option>
+                                <option value="8">Et harum quidem</option>
+                                <option value="9">Temporibus autem</option>
+                                <option value="10">Itaque earum rerum</option>
+                            </select>
+                        </label>
+                    </div>
                     <label>
                         <input class="form__control" type="email" name="email" placeholder="Ваш e-mail" required>
                     </label>
@@ -112,12 +126,13 @@
                     <div class="form__progress-group">
                         <div class="form__progress-desc">
                             <p class="form__hint">Sed ut perspiciatis, unde omnis iste natus</p>
-                            <p>75%</p>
+                            <p><span data-progress-value>75</span> %</p>
                         </div>
-                        <div class="form__progress-line" aria-hidden="true">
-                            <span class="form__progress-bar"></span>
-                        </div>
+
+                        <input class="form__range" type="range" name="progress" min="0" max="100" step="1" value="75"
+                               aria-label="Процент готовности" />
                     </div>
+
                     <div>
                         <input class="form__control visually-hidden" type="file" name="file" id="file">
                         <button class="btn btn--file" type="button" data-file-trigger>
@@ -152,7 +167,7 @@
                     <path d="M16.4086 13.4559C16.4687 13.8435 16.3418 14.0076 16.2135 14.0076C16.0853 14.0076 15.8996 13.85 15.6925 13.5373C15.4855 13.2245 15.4147 12.8769 15.5149 12.6986C15.5526 12.6368 15.6135 12.5915 15.6849 12.572C15.7563 12.5525 15.8327 12.5604 15.8983 12.5939C16.2389 12.718 16.3725 13.2233 16.4086 13.4559ZM14.5209 14.3061C14.9311 14.6408 15.0553 15.0389 14.8389 15.3193C14.773 15.3977 14.689 15.46 14.5936 15.5013C14.4982 15.5426 14.3942 15.5617 14.2898 15.557C14.061 15.5574 13.8393 15.4801 13.6633 15.3386C13.2919 15.0246 13.1824 14.5142 13.4255 14.2247C13.4792 14.1653 13.5462 14.1186 13.6215 14.0881C13.6968 14.0577 13.7782 14.0443 13.8597 14.049C14.1045 14.0569 14.3386 14.1479 14.5209 14.3061ZM13.8369 17.5367C15.599 17.5367 17.5107 18.1208 19.6281 19.9351C19.8392 20.1161 20.1211 19.8912 19.9367 19.6651C17.8567 17.1258 15.929 16.6412 14.0146 16.2329C11.6688 15.7315 10.4611 14.4535 9.61546 13.0514C9.44847 12.7723 9.37232 12.8214 9.35762 13.1806C9.34358 13.7131 9.38521 14.2456 9.48186 14.7701C9.38701 14.7701 9.29083 14.7701 9.19598 14.7701C7.99378 14.7701 6.81858 14.4252 5.81899 13.7792C4.8194 13.1331 4.04031 12.2148 3.58025 11.1404C3.12019 10.0661 2.99982 8.88385 3.23436 7.7433C3.46889 6.60275 4.04781 5.55509 4.89789 4.7328C5.74797 3.91051 6.83104 3.35053 8.01014 3.12366C9.18924 2.89679 10.4114 3.01322 11.5221 3.45824C12.6328 3.90326 13.5821 4.65688 14.25 5.62379C14.9179 6.5907 15.2744 7.72748 15.2744 8.89037C15.275 9.11877 15.2621 9.347 15.2357 9.57397C14.5953 9.49597 13.9482 9.48427 13.3053 9.53908C13.0741 9.55846 13.1075 9.6683 13.2812 9.69285C15.2851 10.043 16.6718 11.2435 16.987 13.4339C16.9882 13.445 16.9929 13.4555 17.0005 13.4638C17.0082 13.4721 17.0183 13.478 17.0296 13.4804C17.0408 13.4828 17.0526 13.4818 17.0632 13.4774C17.0738 13.473 17.0827 13.4654 17.0886 13.4559C18.131 11.7703 18.5674 9.79838 18.3297 7.84774C18.092 5.89709 17.1936 4.07738 15.7746 2.67245C14.3556 1.26752 12.4958 0.356356 10.4853 0.0810911C8.47478 -0.194174 6.42664 0.181935 4.6603 1.15075C2.89396 2.11957 1.50876 3.62662 0.720758 5.43683C-0.0672464 7.24704 -0.213743 9.25863 0.304117 11.1578C0.821978 13.057 1.97508 14.737 3.58355 15.9358C5.19203 17.1346 7.16544 17.7848 9.19598 17.7849C10.5386 17.7887 11.8758 17.5355 13.8369 17.5355V17.5367Z"
                           fill="#3E9CDC" />
                 </svg>
-                <span>Qiwi wallet</span>
+                <span>QIWI wallet</span>
             </div>
             <div class="footer__payments-item">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -187,15 +202,17 @@
         <nav class="footer__contacts">
             <div class="footer__contacts-item">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16.4286 14.8491C16.4286 14.9914 16.303 15.117 16.1607 15.117H3.83929C3.69699 15.117 3.57143 14.9914 3.57143 14.8491V8.42057C3.74721 8.62146 3.93973 8.80561 4.149 8.97302C5.34598 9.89378 6.55134 10.8313 7.71484 11.8023C8.34263 12.3296 9.12109 12.9741 9.99163 12.9741H10H10.0084C10.8789 12.9741 11.6574 12.3296 12.2852 11.8023C13.4487 10.8313 14.654 9.89378 15.851 8.97302C16.0603 8.80561 16.2528 8.62146 16.4286 8.42057V14.8491ZM16.4286 6.05171C16.4286 6.7632 15.7422 7.69233 15.1981 8.11923C14.0765 8.99813 12.9548 9.88541 11.8415 10.7727C11.3979 11.1326 10.5943 11.9027 10.0084 11.9027H10H9.99163C9.40569 11.9027 8.60212 11.1326 8.15848 10.7727C7.0452 9.88541 5.92355 8.99813 4.8019 8.11923C4.04855 7.52492 3.57143 6.69624 3.57143 5.742C3.57143 5.5997 3.69699 5.47414 3.83929 5.47414H16.1607C16.4788 5.47414 16.4286 5.84244 16.4286 6.05171ZM17.5 5.742C17.5 5.00539 16.8973 4.40271 16.1607 4.40271H3.83929C3.10268 4.40271 2.5 5.00539 2.5 5.742V14.8491C2.5 15.5857 3.10268 16.1884 3.83929 16.1884H16.1607C16.8973 16.1884 17.5 15.5857 17.5 14.8491V5.742Z" fill="#3E9CDC"/>
+                    <path d="M16.4286 14.8491C16.4286 14.9914 16.303 15.117 16.1607 15.117H3.83929C3.69699 15.117 3.57143 14.9914 3.57143 14.8491V8.42057C3.74721 8.62146 3.93973 8.80561 4.149 8.97302C5.34598 9.89378 6.55134 10.8313 7.71484 11.8023C8.34263 12.3296 9.12109 12.9741 9.99163 12.9741H10H10.0084C10.8789 12.9741 11.6574 12.3296 12.2852 11.8023C13.4487 10.8313 14.654 9.89378 15.851 8.97302C16.0603 8.80561 16.2528 8.62146 16.4286 8.42057V14.8491ZM16.4286 6.05171C16.4286 6.7632 15.7422 7.69233 15.1981 8.11923C14.0765 8.99813 12.9548 9.88541 11.8415 10.7727C11.3979 11.1326 10.5943 11.9027 10.0084 11.9027H10H9.99163C9.40569 11.9027 8.60212 11.1326 8.15848 10.7727C7.0452 9.88541 5.92355 8.99813 4.8019 8.11923C4.04855 7.52492 3.57143 6.69624 3.57143 5.742C3.57143 5.5997 3.69699 5.47414 3.83929 5.47414H16.1607C16.4788 5.47414 16.4286 5.84244 16.4286 6.05171ZM17.5 5.742C17.5 5.00539 16.8973 4.40271 16.1607 4.40271H3.83929C3.10268 4.40271 2.5 5.00539 2.5 5.742V14.8491C2.5 15.5857 3.10268 16.1884 3.83929 16.1884H16.1607C16.8973 16.1884 17.5 15.5857 17.5 14.8491V5.742Z"
+                          fill="#3E9CDC" />
                 </svg>
                 <a href="mailto:info@ipsum228.com">info@ipsum228.com</a>
             </div>
             <div class="footer__contacts-item">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.8458 12.2863C14.8458 12.9366 14.7228 13.5079 14.4767 14.0001C14.2306 14.4923 13.8995 14.8995 13.4835 15.2218C12.9913 15.6085 12.4493 15.8839 11.8575 16.048C11.2716 16.212 10.5245 16.2941 9.61633 16.2941H4.37805V3.20715H9.0011C9.96204 3.20715 10.6886 3.24524 11.1808 3.32141C11.6788 3.39172 12.1447 3.54407 12.5782 3.77844C13.047 4.0304 13.3956 4.36731 13.6241 4.78918C13.8585 5.21106 13.9757 5.69739 13.9757 6.24817C13.9757 6.88684 13.8146 7.4552 13.4923 7.95325C13.1759 8.45129 12.7365 8.8175 12.174 9.05188V9.12219C12.9825 9.29211 13.63 9.64075 14.1163 10.1681C14.6027 10.6896 14.8458 11.3956 14.8458 12.2863ZM10.6359 6.90735C10.6359 6.69641 10.5802 6.47961 10.4689 6.25696C10.3634 6.0343 10.1964 5.87317 9.9679 5.77356C9.7511 5.67981 9.49329 5.63 9.19446 5.62415C8.90149 5.61243 8.46204 5.60657 7.8761 5.60657H7.64758V8.37512H8.06067C8.62317 8.37512 9.01575 8.36926 9.2384 8.35754C9.46692 8.34583 9.70129 8.2843 9.94153 8.17297C10.2052 8.04993 10.3868 7.88 10.4865 7.66321C10.5861 7.44641 10.6359 7.19446 10.6359 6.90735ZM11.462 12.2247C11.462 11.8204 11.38 11.504 11.2159 11.2755C11.0519 11.047 10.8058 10.8741 10.4777 10.757C10.2784 10.6808 10.0031 10.6398 9.65149 10.6339C9.30579 10.6222 8.83997 10.6163 8.25403 10.6163H7.64758V13.8947H7.82336C8.67883 13.8947 9.27063 13.8888 9.59875 13.8771C9.92688 13.8654 10.2609 13.7863 10.6007 13.6398C10.8995 13.5109 11.1163 13.3234 11.2511 13.0773C11.3917 12.8253 11.462 12.5411 11.462 12.2247Z" fill="#3E9CDC"/>
+                    <path d="M14.8458 12.2863C14.8458 12.9366 14.7228 13.5079 14.4767 14.0001C14.2306 14.4923 13.8995 14.8995 13.4835 15.2218C12.9913 15.6085 12.4493 15.8839 11.8575 16.048C11.2716 16.212 10.5245 16.2941 9.61633 16.2941H4.37805V3.20715H9.0011C9.96204 3.20715 10.6886 3.24524 11.1808 3.32141C11.6788 3.39172 12.1447 3.54407 12.5782 3.77844C13.047 4.0304 13.3956 4.36731 13.6241 4.78918C13.8585 5.21106 13.9757 5.69739 13.9757 6.24817C13.9757 6.88684 13.8146 7.4552 13.4923 7.95325C13.1759 8.45129 12.7365 8.8175 12.174 9.05188V9.12219C12.9825 9.29211 13.63 9.64075 14.1163 10.1681C14.6027 10.6896 14.8458 11.3956 14.8458 12.2863ZM10.6359 6.90735C10.6359 6.69641 10.5802 6.47961 10.4689 6.25696C10.3634 6.0343 10.1964 5.87317 9.9679 5.77356C9.7511 5.67981 9.49329 5.63 9.19446 5.62415C8.90149 5.61243 8.46204 5.60657 7.8761 5.60657H7.64758V8.37512H8.06067C8.62317 8.37512 9.01575 8.36926 9.2384 8.35754C9.46692 8.34583 9.70129 8.2843 9.94153 8.17297C10.2052 8.04993 10.3868 7.88 10.4865 7.66321C10.5861 7.44641 10.6359 7.19446 10.6359 6.90735ZM11.462 12.2247C11.462 11.8204 11.38 11.504 11.2159 11.2755C11.0519 11.047 10.8058 10.8741 10.4777 10.757C10.2784 10.6808 10.0031 10.6398 9.65149 10.6339C9.30579 10.6222 8.83997 10.6163 8.25403 10.6163H7.64758V13.8947H7.82336C8.67883 13.8947 9.27063 13.8888 9.59875 13.8771C9.92688 13.8654 10.2609 13.7863 10.6007 13.6398C10.8995 13.5109 11.1163 13.3234 11.2511 13.0773C11.3917 12.8253 11.462 12.5411 11.462 12.2247Z"
+                          fill="#3E9CDC" />
                 </svg>
-                <a href="https://vk.com/company" target="_blank" rel="noopener">ВКонтакте</a>
+                <a href="https://vk.com/company" target="_blank">Мы вконтакте</a>
             </div>
         </nav>
     </div>
@@ -233,6 +250,8 @@
 
 </svg>
 
-<script src="script.js" defer></script>
+<script src="./choices.min.js"></script>
+<script src="./script.js"></script>
+
 </body>
 </html>

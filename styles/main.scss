@@ -1,17 +1,10 @@
 :root {
   --white: #FFF;
   --black: #000;
+  --black-control: #272733;
   --accent: #3E9CDC;
-  --container: 1165px;
+  --container: 1170px;
   --hh: 100px;
-}
-
-* {
-  box-sizing: border-box
-}
-
-html, body {
-  height: 100%
 }
 
 body {
@@ -21,19 +14,6 @@ body {
   color: var(--white);
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-}
-
-a {
-  text-decoration: none;
-}
-
-h1 {
-  margin: 0;
-}
-
-h1, h2, p {
-  margin-block-start: 0;
-  margin-block-end: 0;
 }
 
 .container {
@@ -66,13 +46,18 @@ h1, h2, p {
   transition: .2s
 }
 
+
 .btn--primary {
   background: var(--accent);
   color: var(--white);
   border: 1px solid var(--white);
 }
 
-.btn--primary:hover {
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:hover {
   filter: brightness(1.2)
 }
 
@@ -94,10 +79,6 @@ h1, h2, p {
   span {
     display: block;
   }
-}
-
-.btn--file:hover {
-  filter: brightness(0.8)
 }
 
 /* header */
@@ -136,9 +117,10 @@ h1, h2, p {
 .header__link {
   color: var(--white);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 400;
   text-decoration: none;
   text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
 .header__link:hover {
@@ -167,6 +149,7 @@ h1, h2, p {
   font-size: clamp(24px, 4vw, 48px);
   font-weight: 700;
   text-transform: uppercase;
+  line-height: 120%;
 }
 
 .hero__accent {
@@ -181,11 +164,23 @@ h1, h2, p {
 
 .hero__desc {
   font-size: 20px;
+  margin-top: 10px;
   font-weight: 700;
 }
 
 .hero__list {
+  padding-left: 10px;
   font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 10px;
+
+  span {
+    font-weight: 800;
+    display: inline-block;
+    margin-right: 4px;
+  }
 }
 
 .hero__actions {
@@ -201,7 +196,7 @@ h1, h2, p {
 
 /* steps */
 .steps {
-  padding: 120px 0 150px;
+  padding: 120px 0;
   text-align: center;
   background-image: url('../assets/bg-steps.jpg');
   background-position: center center;
@@ -229,10 +224,10 @@ h1, h2, p {
   --circle-size: 100px;
   --gap: 30px;
   --dot: 6px;
-  --step: 24px;
+  --step: 26px;
 
   width: 100%;
-  padding: 80px 0;
+  padding: 80px 0 89px 0;
   margin: 0 auto;
   list-style: none;
 
@@ -251,16 +246,15 @@ h1, h2, p {
   min-width: 209px;
   text-align: center;
   position: relative;
-  padding: 10px 0;
+  padding: 0 10px;
   flex-direction: column;
 }
-
 
 .steps__item::after {
   content: "";
   position: absolute;
-  top: 65px;
-  left: calc(50% + 68px);
+  top: 53px;
+  left: calc(50% + 65px);
   transform: translateY(-50%);
 
   width: var(--dot);
@@ -323,7 +317,6 @@ h1, h2, p {
   }
 }
 
-
 .steps__icon {
   position: relative;
   z-index: 1;
@@ -338,7 +331,13 @@ h1, h2, p {
   border-radius: 50%;
   border: 5px solid #286690;
   background: var(--accent);
+  transition: all 0.3s ease;
 }
+
+.steps__icon:hover {
+  filter: brightness(1.2)
+}
+
 
 .steps__icon svg {
   width: 55px;
@@ -347,9 +346,9 @@ h1, h2, p {
 
 
 .steps__caption {
-  margin-top: 8px;
+  margin-top: 20px;
   color: var(--white);
-  font-size: 14px
+  font-size: 16px
 }
 
 /* form */
@@ -380,22 +379,12 @@ h1, h2, p {
   font-size: 15px;
 }
 
-.form__control {
-  height: 48px;
-  border-radius: 3px;
-  background: var(--white);
-  color: var(--black);
-  padding: 0 10px;
-  width: 100%;
-  max-width: 370px;
-}
-
 .form__progress-desc {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 18px;
-  padding-bottom: 20px;
+  padding-bottom: 12px;
 }
 
 .form__submit-group {
@@ -441,6 +430,288 @@ h1, h2, p {
   margin: 0 auto;
 }
 
+.form__select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 370px;
+}
+
+.form__control {
+  height: 48px;
+  font-size: 18px;
+  border-radius: 3px;
+  background: var(--white);
+  color: var(--black-control);
+  border: 1px solid var(--white);
+  padding: 0 10px;
+  width: 100%;
+  max-width: 370px;
+}
+
+.choices[data-type*=select-one] .choices__inner {
+  padding-bottom: 0;
+}
+
+.choices.form__control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  padding: 0 0;
+}
+
+.choices {
+  position: relative;
+}
+
+.is-open .choices__inner {
+  border-radius: 3px;
+  transition: all 0.1s ease;
+}
+
+.choices[data-type*=select-one].is-open::after {
+  margin-top: -3px;
+}
+
+.choices.is-open .choices__inner {
+  background: #3D4050;
+  border: 1px solid #3D4050;
+  color: var(--white);
+}
+
+.is-open .choices__list--dropdown, .is-open .choices__list[aria-expanded] {
+  border-color: #3D4050;
+}
+
+.choices[data-type*="select-one"]::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 54%;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  background: url("../assets/arrow.png") center/contain no-repeat;
+  border: none;
+}
+
+.choices[data-type*="select-one"].is-open::after {
+  background: url("../assets/arrow-white.png") center/contain no-repeat;
+}
+
+.choices.is-open.form__control {
+  border-radius: 10px;
+}
+
+.choices.form__control {
+  border: 0;
+  width: 100%;
+  max-width: 370px;
+  font-size: 18px;
+  color: var(--black-control);
+}
+
+.choices.is-open.form__control .choices__placeholder, .choices.is-open.form__control .choices__item--selectable {
+  color: var(--white);
+}
+
+.choices__list--single {
+  display: inline-block;
+  padding: 0;
+  width: 100%;
+}
+
+.choices__inner {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font-size: 18px;
+  min-height: 48px;
+  border: 1px solid var(--white);
+  background: var(--white);
+  border-radius: 3px;
+  padding: 0 40px 0 10px;
+  box-shadow: none;
+}
+
+.choices__list--single .choices__item {
+  color: var(--black-control);
+}
+
+.choices__placeholder {
+  opacity: 1;
+  text-align: left;
+}
+
+/* dropdown */
+.choices__list--dropdown, .choices__list[aria-expanded] {
+  background: #272733;
+  color: var(--white);
+}
+
+/* пункт списка */
+.choices__list--dropdown .choices__item {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.choices.is-open.form__control .choices__item--selectable:hover {
+  color: #42A9ED;
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted {
+  color: #42A9ED;
+  background: #272733;
+}
+
+.choices[data-type*="select-one"] .choices__list--dropdown .choices__item--selectable.is-highlighted {
+  background: #272733;
+}
+
+/* скролл */
+
+.choices__list--dropdown::before,
+.choices__list--dropdown::after {
+  content: none !important;
+  display: none !important;
+}
+
+.choices__list--dropdown {
+  overflow: visible;
+}
+
+.choices__list--dropdown .choices__list {
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 0;
+  margin-right: 0;
+  scrollbar-color: #3E9CDC #3D4050; /* Firefox */
+}
+
+/* WebKit (Chrome/Edge/Safari) */
+.choices__list--dropdown .choices__list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.choices__list--dropdown .choices__list::-webkit-scrollbar-track {
+  background: #3D4050;
+  border-radius: 3px;
+}
+
+.choices__list--dropdown .choices__list::-webkit-scrollbar-thumb {
+  background: #3E9CDC;
+  border-radius: 3px;
+  border: 0;
+  background-clip: padding-box; /* чтобы «ползунок» занимал всю ширину */
+}
+
+/* прибиваем кнопки скроллбара, если они всё же есть */
+div.choices.form__control.is-open .choices__list--dropdown .choices__list::-webkit-scrollbar-button,
+div.choices.form__control.is-open .choices__list[aria-expanded] .choices__list::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.choices__list--dropdown .choices__list::-webkit-scrollbar-button:single-button:vertical:decrement,
+.choices__list--dropdown .choices__list::-webkit-scrollbar-button:single-button:vertical:increment {
+  display: none;
+}
+
+
+/* кроссбраузер */
+/* прячем стрелку в старом Edge/IE */
+select.form__control::-ms-expand {
+  display: none;
+}
+
+.form__control::placeholder {
+  font-size: 18px;
+  color: var(--black-control);
+  opacity: 1;
+}
+
+/* вендорные префиксы для старых движков */
+.form__control::-webkit-input-placeholder {
+  font-size: 18px;
+  color: var(--black-control);
+}
+
+.form__control::-moz-placeholder {
+  font-size: 18px;
+  color: var(--black-control);
+  opacity: 1;
+}
+
+.form__control:-ms-input-placeholder {
+  font-size: 18px;
+  color: var(--black-control);
+}
+
+// range (ползунок)
+.form__range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: #FFFFFFB2;
+  outline: none;
+  border: 1px solid var(--white);
+}
+
+.form__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid #286690;
+  cursor: pointer;
+}
+
+.form__range::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid #286690;
+  cursor: pointer;
+}
+
+.form__range::-moz-range-track {
+  height: 6px;
+  background: #FFFFFFB2;
+  border: 1px solid var(--white);
+  border-radius: 999px;
+}
+
+.form__range::-ms-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid #286690;
+  cursor: pointer;
+}
+
+.form__range::-ms-track {
+  height: 6px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+
+}
+
+.form__range::-ms-fill-lower,
+.form__range::-ms-fill-upper {
+  background: #2b3342;
+  border-radius: 999px;
+}
+
+
 /* footer */
 .footer {
   height: 80px;
@@ -450,9 +721,11 @@ h1, h2, p {
   align-items: center;
   font-size: 13px;
 }
+
 .footer__copyright span {
   text-transform: uppercase;
 }
+
 .footer__row {
   display: flex;
   flex-direction: row;
@@ -495,4 +768,39 @@ h1, h2, p {
   width: 1px;
   height: 18px;
   background-color: var(--white);
+}
+
+// loader
+/* фоновая подложка */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #272733;          /* цвет фона */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;                /* поверх всего */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* анимация исчезновения */
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* сам спиннер */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  border-top: 5px solid #42A9ED;    /* цвет анимации */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

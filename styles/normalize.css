@@ -13,6 +13,18 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
+* {
+  box-sizing: border-box
+}
+
+html, body {
+  height: 100%
+}
+
+a {
+  text-decoration: none;
+}
+
 /* Sections
    ========================================================================== */
 
@@ -32,6 +44,8 @@ main {
   display: block;
 }
 
+
+
 /**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
@@ -39,7 +53,16 @@ main {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+h1, h2, p {
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 /* Grouping content
@@ -165,6 +188,8 @@ textarea {
   font-size: 100%; /* 1 */
   line-height: 1.15; /* 1 */
   margin: 0; /* 2 */
+  outline: 0;
+  border: 0;
 }
 
 /**
@@ -271,7 +296,9 @@ textarea {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
-
+html {
+  scroll-behavior: smooth;
+}
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
@@ -346,3 +373,4 @@ template {
 [hidden] {
   display: none;
 }
+
