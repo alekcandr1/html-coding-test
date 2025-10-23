@@ -53,7 +53,6 @@
         }
     </style>
 
-    <link rel="stylesheet" href="styles/choices.min.css">
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/typography.css">
     <link rel="stylesheet" href="./styles/main.css">
@@ -157,22 +156,23 @@
             </ol>
             <form class="form" id="order" style="--col: 3">
                 <div class="form__grid">
-                    <div class="form__field form__select">
-                        <label class="form__select-label">
-                            <select id="system" class="form__control" name="system" required>
-                                <option value="" disabled selected hidden>Выберите тип системы</option>
-                                <option value="1">Sed ut perspiciatis</option>
-                                <option value="2">Nemo enim ipsam</option>
-                                <option value="3">Et harum quidem</option>
-                                <option value="4">Temporibus autem</option>
-                                <option value="5">Itaque earum rerum</option>
-                                <option value="6">Sed ut perspiciatis</option>
-                                <option value="7">Nemo enim ipsam</option>
-                                <option value="8">Et harum quidem</option>
-                                <option value="9">Temporibus autem</option>
-                                <option value="10">Itaque earum rerum</option>
-                            </select>
-                        </label>
+                    <div class="form__select form__field" id="systemSelect" aria-haspopup="listbox"
+                         aria-expanded="false">
+                        <button type="button" class="form__select__button form__control" id="systemSelect-btn">
+                            <span class="form__select__value">Выберите тип системы</span>
+                        </button>
+                        <div class="form__select__popup" role="presentation">
+                            <div class="form__select__viewport">
+                                <ul class="form__select__list" role="listbox" tabindex="-1"
+                                    aria-labelledby="systemSelect-btn"></ul>
+                                <div class="sb sb--hidden" aria-hidden="true">
+                                    <div class="sb__track">
+                                        <div class="sb__thumb"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="system_type" />
                     </div>
                     <label class="form__field">
                         <input class="form__control" type="email" name="email" placeholder="Ваш e-mail" required>
@@ -311,8 +311,12 @@
 
 </svg>
 
-<script src="https://alekcandr1.github.io/html-coding-test/js/choices.min.js" defer></script>
-<script src="https://alekcandr1.github.io/html-coding-test/js/script.js" defer></script>
+<script src="./js/script.js" defer></script>
 
+<script>
+
+    // custom select + scroll
+
+</script>
 </body>
 </html>
