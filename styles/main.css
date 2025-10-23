@@ -316,6 +316,7 @@ body {
   }
   .hero__title {
     font-weight: 800;
+    padding-top: 40px;
   }
   .hero__content {
     gap: 50px;
