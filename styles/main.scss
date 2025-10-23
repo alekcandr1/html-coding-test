@@ -279,7 +279,7 @@ body {
 }
 
 .hero__title {
-  font-size: clamp(22px, 4vw, 48px);
+  font-size: clamp(24px, 4vw, 48px);
   font-weight: 700;
   text-transform: uppercase;
   line-height: 120%;
@@ -288,7 +288,7 @@ body {
 .hero__desc {
   margin-top: 10px;
   font-weight: 700;
-  font-size: clamp(13px, 2vw, 20px);
+  font-size: clamp(17px, 2vw, 20px);
 }
 
 .hero__accent {
@@ -347,6 +347,9 @@ body {
 @media (max-width: 470px) {
   .hero {
     height: 100vh;
+  }
+  .hero__title {
+    font-weight: 800;
   }
   .hero__content {
     gap: 50px;

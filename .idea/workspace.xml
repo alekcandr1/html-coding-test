@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d98b9dd3-2f0b-4b9b-b9be-7d1d0949734d" name="Changes" comment="Step 4 done: cross-browser">
-      <change afterPath="$PROJECT_DIR$/assets/bg-main-mobile.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bg-main-mobile.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bg-main-mobile.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bg-main-mobile@2x.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bg-main-mobile@2x.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bg-main-mobile@2x.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bg-main@2x.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bg-main@2x.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/bg-main@2x.webp" afterDir="false" />
+    <list default="true" id="d98b9dd3-2f0b-4b9b-b9be-7d1d0949734d" name="Changes" comment="Step 5 done: optimize speed loading for mobile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/main.scss" afterDir="false" />
@@ -72,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1761038849471</updated>
       <workItem from="1761038853938" duration="35646000" />
-      <workItem from="1761131773062" duration="35390000" />
+      <workItem from="1761131773062" duration="36275000" />
     </task>
     <task id="LOCAL-00001" summary="Step 1 done: desktop version">
       <created>1761077264272</created>
@@ -102,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1761209224946</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Step 5 done: optimize speed loading for mobile">
+      <created>1761210879539</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761210879539</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +114,8 @@
     <MESSAGE value="Step 3 done: adaptivity" />
     <MESSAGE value="Step 3 done: cross-browser" />
     <MESSAGE value="Step 4 done: cross-browser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Step 4 done: cross-browser" />
+    <MESSAGE value="Step 4 done: optimize speed loading for mobile" />
+    <MESSAGE value="Step 5 done: optimize speed loading for mobile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Step 5 done: optimize speed loading for mobile" />
   </component>
 </project>
