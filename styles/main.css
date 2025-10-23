@@ -220,9 +220,9 @@ body {
 .hero {
   color: var(--black);
   height: 850px;
-  background-image: image-set(url("../assets/bg-main.avif") 1x, url("../assets/bg-main@2x.avif") 2x, url("../assets/bg-main.webp") 1x, url("../assets/bg-main@2x.webp") 2x, url("../assets/bg-main.jpg") 1x, url("../assets/bg-main@2x.jpg") 2x);
+  background-image: image-set(url("https://alekcandr1.github.io/html-coding-test/assets/bg-main.avif") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main@2x.avif") 2x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main.webp") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main@2x.webp") 2x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main.jpg") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main@2x.jpg") 2x);
   /* для старого Safari */
-  background-image: -webkit-image-set(url("../assets/bg-main.avif") 1x, url("../assets/bg-main@2x.avif") 2x, url("../assets/bg-main.webp") 1x, url("../assets/bg-main@2x.webp") 2x, url("../assets/bg-main.jpg") 1x, url("../assets/bg-main@2x.jpg") 2x);
+  background-image: -webkit-image-set(url("https://alekcandr1.github.io/html-coding-test/assets/bg-main.avif") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main@2x.avif") 2x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main.webp") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main@2x.webp") 2x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main.jpg") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main@2x.jpg") 2x);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -230,9 +230,9 @@ body {
 
 @media (max-width: 768px) {
   .hero {
-    background-image: image-set(url("../assets/bg-main-mobile.avif") 1x, url("../assets/bg-main-mobile@2x.avif") 2x, url("../assets/bg-main-mobile.webp") 1x, url("../assets/bg-main-mobile@2x.webp") 2x, url("../assets/bg-main-mobile.jpg") 1x, url("../assets/bg-main-mobile@2x.jpg") 2x);
+    background-image: image-set(url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile.avif") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile@2x.avif") 2x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile.webp") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile@2x.webp") 2x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile.jpg") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile@2x.jpg") 2x);
     /* для старого Safari */
-    background-image: -webkit-image-set(url("../assets/bg-main-mobile.avif") 1x, url("../assets/bg-main-mobile@2x.avif") 2x, url("../assets/bg-main-mobile.webp") 1x, url("../assets/bg-main-mobile@2x.webp") 2x, url("../assets/bg-main-mobile.jpg") 1x, url("../assets/bg-main-mobile@2x.jpg") 2x);
+    background-image: -webkit-image-set(url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile.avif") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile@2x.avif") 2x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile.webp") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile@2x.webp") 2x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile.jpg") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-main-mobile@2x.jpg") 2x);
   }
 }
 .hero__flex {
@@ -261,7 +261,7 @@ body {
 }
 
 .hero__content {
-  max-width: 800px;
+  max-width: 780px;
   display: flex;
   gap: 80px;
   flex-direction: column;
@@ -333,7 +333,7 @@ body {
 .steps {
   padding: 120px 0;
   text-align: center;
-  background-image: image-set(url("../assets/bg-steps.avif") 1x, url("../assets/bg-steps.webp") 1x, url("../assets/bg-steps.png") 1x);
+  background-image: image-set(url("https://alekcandr1.github.io/html-coding-test/assets/bg-steps.avif") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-steps.webp") 1x, url("https://alekcandr1.github.io/html-coding-test/assets/bg-steps.png") 1x);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -761,12 +761,12 @@ form .btn {
   width: 20px;
   height: 20px;
   transform: translateY(-50%);
-  background: url("../assets/arrow.png") center/contain no-repeat;
+  background: url("https://alekcandr1.github.io/html-coding-test/assets/arrow.png") center/contain no-repeat;
   border: none;
 }
 
 .choices[data-type*=select-one].is-open::after {
-  background: url("../assets/arrow-white.png") center/contain no-repeat;
+  background: url("https://alekcandr1.github.io/html-coding-test/assets/arrow-white.png") center/contain no-repeat;
 }
 
 .choices.is-open.form__control {
