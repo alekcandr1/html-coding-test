@@ -20,6 +20,8 @@
 
 8. **Динамика** — прелоадер на старте, ховеры на кнопках/иконках.
 
-9. **Сторонние плагины** — использован Choices.js для стилизации <select>.
+9. **Сторонние плагины** — использован Choices.js для стилизации select.
 
-![Google Page Speed](https://alekcandr1.github.io/html-coding-test/readme/1.png)
+___
+
+<img src="https://alekcandr1.github.io/html-coding-test/readme/1.png" height=""/>
