@@ -582,6 +582,10 @@ body {
   grid-template-columns: 1fr;
 }
 
+.choices__list--dropdown .choices__item, .choices__list[aria-expanded] .choices__item {
+
+  font-size: 18px;
+}
 
 // range (ползунок)
 .form__range {
