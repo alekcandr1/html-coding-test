@@ -346,8 +346,13 @@ body {
 
 @media (max-width: 470px) {
   .hero {
-    height: 100vh;
+    min-height: 100dvh;
   }
+
+  @supports not (height: 100dvh) {
+    .hero { min-height: 100vh; }
+  }
+
   .hero__title {
     font-weight: 800;
   }
