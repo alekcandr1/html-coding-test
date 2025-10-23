@@ -38,7 +38,7 @@
         allowHTML: false,
         placeholder: true,
         classNames: {
-            containerOuter: 'choices', // только один класс!
+            containerOuter: 'choices',
         },
     });
 
@@ -76,5 +76,54 @@
     form.addEventListener('submit', (e) => {
         // e.preventDefault();
         // console.log('progress =', range.value);
+    });
+})();
+
+// Burger
+(function () {
+    const burger = document.querySelector('.header__burger');
+    const nav = document.getElementById('header-menu');
+
+    if (!burger || !nav) return;
+
+    const close = () => {
+        burger.classList.remove('header__burger--active');
+        burger.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('header__nav--open');
+        nav.hidden = true;
+        document.body.classList.remove('is-locked');
+        burger.setAttribute('aria-label', 'Открыть меню');
+    };
+
+    const open = () => {
+        burger.classList.add('header__burger--active');
+        burger.setAttribute('aria-expanded', 'true');
+        nav.hidden = false;
+        nav.classList.add('header__nav--open');
+        document.body.classList.add('is-locked');
+        burger.setAttribute('aria-label', 'Закрыть меню');
+    };
+
+    burger.addEventListener('click', () => {
+        const isOpen = burger.classList.contains('header__burger--active');
+        isOpen ? close() : open();
+    });
+
+    nav.addEventListener('click', (e) => {
+        if (e.target.closest('.header__link')) close();
+    });
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+    });
+
+    const mql = window.matchMedia('(min-width: 840px)');
+    mql.addEventListener('change', (e) => {
+        if (e.matches) {
+            close();
+            nav.hidden = false;
+        } else {
+            nav.hidden = true;
+        }
     });
 })();

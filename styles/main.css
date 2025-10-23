@@ -5,7 +5,6 @@
   --black-control: #272733;
   --accent: #3E9CDC;
   --container: 1170px;
-  --hh: 100px;
 }
 
 body {
@@ -94,12 +93,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 70px;
 }
 
 .header__logo {
   color: var(--white);
-  font-size: 28px;
+  font-size: clamp(22px, 4vw, 28px);
   text-transform: uppercase;
   font-weight: 800;
   font-family: "Raleway", sans-serif;
@@ -127,6 +126,95 @@ body {
   color: #43ABF0;
 }
 
+/* burger */
+.header__burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  padding: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.header__burger-line {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: #fff;
+  transition: 0.2s;
+}
+
+.header__burger-line:nth-child(1) {
+  top: 12px;
+}
+
+.header__burger-line:nth-child(2) {
+  top: 19px;
+}
+
+.header__burger-line:nth-child(3) {
+  top: 26px;
+}
+
+.header__burger--active .header__burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header__burger--active .header__burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.header__burger--active .header__burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 839.98px) {
+  .header__burger {
+    display: block;
+  }
+  .header__nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    display: grid;
+    gap: 20px;
+    padding: 20px 16px 32px;
+    background: #10101D;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .header__nav--open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .header__link {
+    font-size: 16px;
+  }
+  .is-locked {
+    overflow: hidden;
+  }
+}
+@media (min-width: 840px) {
+  .header__nav {
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 0;
+    background: transparent;
+  }
+  .header__row {
+    height: 100px;
+  }
+}
 /* hero */
 .hero {
   color: var(--black);
@@ -146,10 +234,16 @@ body {
 }
 
 .hero__title {
-  font-size: clamp(24px, 4vw, 48px);
+  font-size: clamp(22px, 4vw, 48px);
   font-weight: 700;
   text-transform: uppercase;
   line-height: 120%;
+}
+
+.hero__desc {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: clamp(13px, 2vw, 20px);
 }
 
 .hero__accent {
@@ -160,12 +254,6 @@ body {
   display: flex;
   gap: 80px;
   flex-direction: column;
-}
-
-.hero__desc {
-  font-size: 20px;
-  margin-top: 10px;
-  font-weight: 700;
 }
 
 .hero__list {
@@ -193,6 +281,34 @@ body {
   height: 43px;
 }
 
+@media (max-width: 1200px) {
+  .hero {
+    background-position: 60% center;
+  }
+}
+@media (max-width: 840px) {
+  .hero {
+    background-position: 70% center;
+    height: 650px;
+  }
+  .hero__content {
+    gap: 50px;
+  }
+}
+@media (max-width: 470px) {
+  .hero {
+    height: 100vh;
+  }
+  .hero__content {
+    gap: 50px;
+  }
+  .hero__actions {
+    padding-top: 30px;
+  }
+  .hero__desc {
+    padding-top: 0;
+  }
+}
 /* steps */
 .steps {
   padding: 120px 0;
@@ -204,14 +320,14 @@ body {
 }
 
 .steps__title {
-  font-size: 36px;
+  font-size: clamp(22px, 3vw, 36px);
   margin-bottom: 30px;
   text-transform: uppercase;
   font-weight: 800;
 }
 
 .steps__description {
-  font-size: 18px;
+  font-size: clamp(16px, 2vw, 18px);
   color: #BBBBBB;
 }
 
@@ -297,6 +413,7 @@ body {
     --gap: 5px;
     --circle-size: 80px;
     row-gap: 25px;
+    padding: 40px 0 70px 0;
   }
   .steps__item::after {
     content: none;
@@ -304,6 +421,9 @@ body {
   .steps__item {
     width: 140px;
     min-width: 140px;
+  }
+  .steps {
+    padding: 70px 0;
   }
 }
 .steps__icon {
@@ -334,7 +454,7 @@ body {
 .steps__caption {
   margin-top: 20px;
   color: var(--white);
-  font-size: 16px;
+  font-size: clamp(14px, 3vw, 16px);
 }
 
 /* form */
@@ -452,7 +572,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 18px;
+  font-size: clamp(13px, 2vw, 18px);
   padding-bottom: 12px;
 }
 
@@ -705,7 +825,6 @@ form .btn {
   scrollbar-color: #3E9CDC #3D4050; /* Firefox */
 }
 
-/* WebKit (Chrome/Edge/Safari) */
 .choices__list--dropdown .choices__list::-webkit-scrollbar {
   width: 8px;
 }
@@ -722,7 +841,6 @@ form .btn {
   background-clip: padding-box; /* чтобы «ползунок» занимал всю ширину */
 }
 
-/* прибиваем кнопки скроллбара, если они всё же есть */
 div.choices.form__control.is-open .choices__list--dropdown .choices__list::-webkit-scrollbar-button,
 div.choices.form__control.is-open .choices__list[aria-expanded] .choices__list::-webkit-scrollbar-button {
   display: none;
@@ -736,7 +854,6 @@ div.choices.form__control.is-open .choices__list[aria-expanded] .choices__list::
 }
 
 /* кроссбраузер */
-/* прячем стрелку в старом Edge/IE */
 select.form__control::-ms-expand {
   display: none;
 }
@@ -747,7 +864,6 @@ select.form__control::-ms-expand {
   opacity: 1;
 }
 
-/* вендорные префиксы для старых движков */
 .form__control::-webkit-input-placeholder {
   font-size: 18px;
   color: var(--black-control);
