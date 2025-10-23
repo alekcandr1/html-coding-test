@@ -21,17 +21,3 @@
 8. Динамика — прелоадер на старте, ховеры на кнопках/иконках.
 
 9. Сторонние плагины — использован Choices.js для стилизации <select>.
-10. 
-# 📁 Структура
-/assets
-  bg-main*, bg-main-mobile*, bg-steps*, arrow*.*
-/fonts
-/styles
-  normalize.css
-  typography.css
-  main.scss
-  main.css
-/js
-  choices.min.js
-  script.js
-index.html
