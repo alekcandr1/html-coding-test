@@ -1044,10 +1044,19 @@ select.form__control::-ms-expand {
 @media (max-width: 500px) {
   .footer__row {
     text-align: center;
+    gap: 20px;
   }
   .footer__payments, .footer__contacts {
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
-    align-items: center;
+    align-items: flex-start;
+    min-width: 150px;
+    font-size: 11px;
+  }
+  .footer__copyright {
+    font-size: 12px;
+  }
+  .footer__payments-item, .footer__contacts-item {
+    gap: 4px;
   }
 }
