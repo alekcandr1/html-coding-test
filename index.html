@@ -193,7 +193,6 @@
                                        aria-label="Процент готовности" required />
                             </div>
                             <div class="form__file">
-                                <input class="form__control visually-hidden" type="file" name="file" id="file" required>
                                 <label for="file" class="btn btn--file" id="file-button">
                                     <svg width="18" height="20" viewBox="0 0 18 20" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -202,7 +201,8 @@
                                     </svg>
                                     <span>Прикрепить файл</span>
                                 </label>
-                                <!-- <span class="form__file-name" data-file-name>Файл не выбран</span>-->
+                                <input class="form__control visually-hidden" type="file" name="file" id="file" required>
+                                <span class="form__file-name" data-file-name>Файл не выбран</span>
                             </div>
                         </div>
                     </div>
